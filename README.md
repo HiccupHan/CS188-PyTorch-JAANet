@@ -13,13 +13,12 @@ cd PyTorch-JAANet
 ## Datasets
 [BP4D](http://www.cs.binghamton.edu/~lijun/Research/3DFE/3DFE_Analysis.html)
 
-Put BP4D dataset images into the folder "dataset" following the paths shown in the list files of the folder "data/list". Place AU annotation file in the same folder. The path file can be modified, and file write_all_path.py can be used for this purpose. Run
+Put BP4D dataset images into the folder "dataset". Place AU annotation file and a text file of relative image paths under data/list. There are example files in that folder. BP4D_combine_1_2_path.txt are image paths for training and BP4D_part3_path.txt are paths for testing. The same naming scheme is used for AU annotation files ending in AUOccur.txt. write_all_path.py can be used to automatically generate image paths file. Run this command:
   ```
   python write_all_path.py --foldpath 'path to image folder' --outputpath 'path to output image path text file'
   ```
-Currently BP4D_combine_1_2_path.txt are image paths for training and BP4D_part3_path.txt are paths for testing. The same naming scheme is used for AU annotation files ending in AUOccur.txt.
 
-Check_data.py in the main folder was used for our purposes to check for mismatches in data and should be disregarded.
+Check_data.py in the main folder was used for our purposes to check for mismatches in data and should be disregarded. 
 
 ## Preprocessing
 - Put the landmark annotation files into the folder "dataset". Files provided are BP4D_combine_1_2_land.txt for training, BP4D_part3_land.txt for testing, and BP4D_att_land.txt and BP4D_att2_land.txt for generating the sample attention heatmaps. 
@@ -40,7 +39,7 @@ Check_data.py in the main folder was used for our purposes to check for mismatch
   cd dataset
   python write_AU_weight.py
   ```
-- Remeber to modify the files and change file paths to your own in all three python files mentioned above.
+- Remeber to modify these files and change file paths to your own if you intend to use your own data.
 
 ## Training
 - Train on BP4D with the first two folds for training and the third fold for testing:
@@ -59,7 +58,7 @@ python test_JAAv1.py --run_name='JAAv1' --gpu_id=0 --pred_AU=False --vis_attenti
 ```
 
 ## Citation
-- If you use this code for your research, DON'T. This code is intended only for viewing and recreational purposes. Please go to https://github.com/ZhiwenShao/PyTorch-JAANet and cite the original papers
+- If you want to use this code for your research, DON'T. This code is intended only for viewing and recreational purposes. Please go to https://github.com/ZhiwenShao/PyTorch-JAANet and cite the original papers
 ```
 @inproceedings{shao2018deep,
   title={Deep Adaptive Attention for Joint Facial Action Unit Detection and Face Alignment},
