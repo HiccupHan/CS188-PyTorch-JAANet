@@ -53,8 +53,8 @@ write_path_prefix = '../data/imgs/'
 box_enlarge = 2.9
 img_size = 200
 
-all_imgs_path = open(list_path_prefix + 'BP4D_combine_1_2_path.txt').readlines()
-all_imgs_land = np.loadtxt('BP4D_combine_1_2_land.txt')
+all_imgs_path = open(list_path_prefix + 'BP4D_part3_path.txt').readlines()
+all_imgs_land = np.loadtxt('BP4D_part3_land.txt')
 # Make the landmarks be indexed from 0
 all_imgs_land = all_imgs_land - 1
 
@@ -63,8 +63,8 @@ if not os.path.exists(write_path_prefix):
 
 all_imgs_new_land = np.zeros(all_imgs_land.shape)
 # uncomment this for all images:
-# for i in range(len(all_imgs_path)):
-for i in range(2):
+for i in range(len(all_imgs_path)):
+# for i in range(2):
     full_path = all_imgs_path[i].strip()
     sub_paths = full_path.split('/')
     full_path_prefix = full_path[:-len(sub_paths[-1])]
@@ -77,4 +77,4 @@ for i in range(2):
     cv2.imwrite(write_path_prefix + full_path, aligned_img)
     all_imgs_new_land[i, :] = new_land
 
-np.savetxt(list_path_prefix+'BP4D_combine_1_2_land.txt', all_imgs_new_land, fmt='%f', delimiter='\t')
+np.savetxt(list_path_prefix+'BP4D_part3_land.txt', all_imgs_new_land, fmt='%f', delimiter='\t')

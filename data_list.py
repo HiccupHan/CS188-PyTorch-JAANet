@@ -13,6 +13,7 @@ def make_dataset(image_list, land, biocular, au):
 def pil_loader(path):
     # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
     # Image value: [0,1]
+    path = 'data/imgs/'+path
     with open(path, 'rb') as f:
         with Image.open(f) as img:
             return img.convert('RGB')
