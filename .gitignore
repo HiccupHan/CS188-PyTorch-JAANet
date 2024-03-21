@@ -1,6 +1,8 @@
-dataset/
+dataset/BP4D/
 BP4D-12AUs-txt/
 BP4D-Landmarks/
 AUCoding/
-data/imgs/
+data/imgs/BP4D/
 data/list/vault/
+dataset/check_path.py
+check_data.py
